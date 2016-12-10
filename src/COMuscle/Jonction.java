@@ -6,7 +6,6 @@ public class Jonction extends Emplacement {
     private ArrayList<Extremite> extremites;
 
     /* CONSTRUCTEUR */
-    
     public Jonction(ArrayList<Extremite> extremites_) {
         this.longueur = 1;
         this.extremites = extremites_;

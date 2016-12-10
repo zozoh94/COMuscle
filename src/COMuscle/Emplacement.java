@@ -1,5 +1,7 @@
 package COMuscle;
 
+import java.util.ArrayList;
+
 public abstract class Emplacement {
   protected int longueur;
   protected Capteur sonCapteur;
@@ -23,13 +25,13 @@ public abstract class Emplacement {
       this.sesVehicules.remove(vehicule);
   }
 
-  public Emplacement getEmplacement() {
+  /*public Emplacement getEmplacement() {
       return emplacement;
   }
 
   public void setEmplacement(Emplacement emplacement) {
       this.emplacement = emplacement;
-  }
+  }*/
   
   public Capteur getSonCapteur(){
     return sonCapteur;
