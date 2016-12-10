@@ -1,18 +1,20 @@
 package COMuscle;
 
+import java.util.ArrayList;
+
 public class Extremite {
   private Jonction saJonction;
   private Segment sonSegment;
-  private Semaphore sonSemaphore;
+  private ArrayList<Semaphore> sesSemaphore;
   
   /* GETTERS ET SETTERS */
   
-  public Semaphore getSonSemaphore() {
-	  return sonSemaphore;
+  public ArrayList<Semaphore> getSonSemaphore() {
+	  return sesSemaphore;
   }
   
-  public void setSonSemaphore(Semaphore s) {
-	  sonSemaphore=s;
+  public void setSonSemaphore(ArrayList<Semaphore> s) {
+	  sesSemaphore=s;
   }
   
   public Jonction getSaJonction() {
