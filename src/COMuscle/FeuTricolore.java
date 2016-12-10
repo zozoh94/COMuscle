@@ -10,4 +10,10 @@ public class FeuTricolore extends Feux{
 	public String toString() {
 		return etat.toString();
 	}
+	
+	public void update() {
+		if (this.etat==TricolorEnum.ROUGE) this.etat=TricolorEnum.VERT;
+		else if (this.etat==TricolorEnum.ORANGE) this.etat=TricolorEnum.ROUGE;
+		else this.etat=TricolorEnum.ORANGE;
+	}
 }
