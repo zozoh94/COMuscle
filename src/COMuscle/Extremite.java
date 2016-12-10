@@ -3,8 +3,17 @@ package COMuscle;
 public class Extremite {
   private Jonction saJonction;
   private Segment sonSegment;
+  private Semaphore sonSemaphore;
   
   /* GETTERS ET SETTERS */
+  
+  public Semaphore getSonSemaphore() {
+	  return sonSemaphore;
+  }
+  
+  public void setSonSemaphore(Semaphore s) {
+	  sonSemaphore=s;
+  }
   
   public Jonction getSaJonction() {
     return saJonction;
@@ -20,5 +29,5 @@ public class Extremite {
   
   public void setSonSegment(Segment sonSegment_) {
     this.sonSegment = sonSegment_;
-  }
+}
 }
