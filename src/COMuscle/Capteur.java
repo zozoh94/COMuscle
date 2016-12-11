@@ -2,7 +2,12 @@ package COMuscle;
 
 public class Capteur {
 
-	protected Emplacement sonEmplacement;
+	protected Position saPosition;
+	//protected Regulateur sonRegulateur;
 	
+	public Capteur(Position p) {
 	
+		saPosition=p;
+
+	}
 }

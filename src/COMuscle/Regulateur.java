@@ -2,10 +2,13 @@ package COMuscle;
 
 import java.util.ArrayList;
 
-public class Regulateur {
-    private ArrayList<Semaphore> semaphores;
-    private ArrayList<Capteur> capteurs;
+public abstract class Regulateur {
+    protected ArrayList<Semaphore> semaphores;
+    protected ArrayList<Capteur> capteurs;
 
+    
+     
+    
     public ArrayList<Semaphore> getSemaphores() {
         return semaphores;
     }
@@ -35,6 +38,10 @@ public class Regulateur {
     }
 
     public void removecapteur(Capteur capteur) {
-        this.capteurs.remove(capteur);
-    }
+		this.capteurs.remove(capteur);
+	}
+    
+    public abstract void run();
+    
+   
 }

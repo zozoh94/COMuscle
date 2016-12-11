@@ -1,24 +1,24 @@
 package COMuscle;
 
-public class FeuTricolore extends Feux {
-	TricolorEnum etat;
+public class FeuTricolore extends Feu {
+	private EnumFeu etat;
+	
+	public FeuTricolore(EnumFeu etat_) {
+		etat=etat_;
+	}
 	
 	public FeuTricolore(Extremite extremite) {
 		super(extremite);
-		etat = TricolorEnum.ROUGE;
-	}
-	
-	public FeuTricolore(TricolorEnum etat_) {
-		etat = etat_;
-	}
+		etat = EnumFeu.VERT;
+}
 	
 	public String toString() {
 		return etat.toString();
 	}
 	
 	public void update() {
-		if (this.etat==TricolorEnum.ROUGE) this.etat=TricolorEnum.VERT;
-		else if (this.etat==TricolorEnum.ORANGE) this.etat=TricolorEnum.ROUGE;
-		else this.etat=TricolorEnum.ORANGE;
+		if (this.etat==EnumFeu.ROUGE) this.etat=EnumFeu.VERT;
+		else if (this.etat==EnumFeu.ORANGE) this.etat=EnumFeu.ROUGE;
+		else this.etat=EnumFeu.ORANGE;
 	}
 }

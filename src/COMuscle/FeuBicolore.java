@@ -1,19 +1,29 @@
 package COMuscle;
 
-public class FeuBicolore extends Feux {
-	BicolorEnum etat;
-	
-	public FeuBicolore(BicolorEnum etat_) {
-		etat=etat_;
+public class FeuBicolore extends Feu {
+	private EnumFeu etat;
+
+	public FeuBicolore(EnumFeu etat_) {
+		if (etat_ == EnumFeu.ORANGE)
+			System.out.println("Erreur c'est un feu Bicolore !!");
+		else
+			etat = etat_;
+
 	}
-	
-	
+	public FeuBicolore(Extremite extremite) {
+		super(extremite);
+		etat = EnumFeu.ROUGE;
+}
+
 	public void update() {
-		if (this.etat==BicolorEnum.ROUGE) this.etat=BicolorEnum.VERT;
-		else this.etat=BicolorEnum.ROUGE;
+
+		if (this.etat == EnumFeu.ROUGE)
+			this.etat = EnumFeu.VERT;
+		else
+			this.etat = EnumFeu.ROUGE;
+
 	}
-	
-	
+
 	public String toString() {
 		return etat.toString();
 	}
