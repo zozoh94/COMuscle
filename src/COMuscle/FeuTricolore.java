@@ -1,6 +1,6 @@
 package COMuscle;
 
-public class FeuTricolore extends Semaphore {
+public class FeuTricolore extends Feux {
 	TricolorEnum etat;
 	
 	public FeuTricolore(Extremite extremite) {
