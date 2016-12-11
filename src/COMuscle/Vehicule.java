@@ -34,8 +34,10 @@ public abstract class Vehicule {
     		if (this.peutAvancer()) {
     			
 	    		// On récupère l'emplacement suivant (qui peut être un segment ou une jonction) en fonction du sens dans lequel le véhicule avance (i.e. en fonction de la file)
-	    		this.position.setEmplacement(this.position.getEmplacement().recupererEmplacementSuivant(this.position.getFile().getSens()));
+	    		this.position.getEmplacement().removeVehicule(this);
+    			this.position.setEmplacement(this.position.getEmplacement().recupererEmplacementSuivant(this.position.getFile().getSens()));
 	    		this.position.setPosition(0); // On oublit pas de réinitialiser la position sur le nouvel emplacement
+	    		this.position.getEmplacement().addVehicule(this);
     		}
     	}
     	// Sinon on continue d'avancer sur l'emplacement
