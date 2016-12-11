@@ -1,5 +1,5 @@
 package COMuscle;
 
-public class FeuBicolore extends Feux {
+public class FeuBicolore extends Semaphore {
 	BicolorEnum etat;
 }

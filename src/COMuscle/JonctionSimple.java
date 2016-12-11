@@ -11,6 +11,9 @@ public class JonctionSimple extends Jonction {
     
     public JonctionSimple(Segment segment1, Segment segment2) {
     	super(new ArrayList<Extremite>(Arrays.asList(segment1.getExtremite2(), segment2.getExtremite1())));
+    	
+    	segment1.getExtremite2().setSaJonction(this);
+    	segment2.getExtremite1().setSaJonction(this);
     }
 
 }

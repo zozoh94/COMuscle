@@ -11,7 +11,12 @@ public class Extremite {
 
 	public Extremite() {
 		super();
-	} 
+	}
+	
+	public Extremite(Segment sonSegment) {
+		super();
+		this.sonSegment = sonSegment;
+	}
   
 	public Extremite(Jonction saJonction, Segment sonSegment, ArrayList<Semaphore> sesSemaphores) {
 		super();

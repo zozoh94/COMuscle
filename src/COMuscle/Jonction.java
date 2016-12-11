@@ -9,6 +9,10 @@ public class Jonction extends Emplacement {
     public Jonction(ArrayList<Extremite> extremites_) {
         this.longueur = 1;
         this.extremites = extremites_;
+        
+    	// On ajoute automatiquement les files des segments reliés
+        for (int i = 0 ; i < extremites_.size() ; i++)
+        	this.addFiles(extremites_.get(i).getSonSegment().getFiles());
     }
     
     /* GETTERS ET SETTERS */
