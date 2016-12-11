@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bbdf60d-8805-4649-87f3-4cb249d9daaf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/COMuscle/File.java" afterPath="$PROJECT_DIR$/src/COMuscle/File.java" />
     </list>
     <ignored path="COMuscle.iws" />
@@ -29,7 +27,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/COMuscle/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="340">
               <caret line="25" column="44" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="44" />
               <folding />
             </state>
@@ -39,12 +37,22 @@
       <file leaf-file-name="File.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/COMuscle/File.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="153">
+              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
               <folding>
-                <element signature="e#286#287#0" expanded="true" />
-                <element signature="e#309#310#0" expanded="true" />
+                <element signature="e#287#288#0" expanded="true" />
+                <element signature="e#310#311#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Barriere.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/COMuscle/Barriere.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,18 +73,6 @@
             <state relative-caret-position="255">
               <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PanneauSTOP.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/COMuscle/PanneauSTOP.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-              <folding>
-                <element signature="e#569#570#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -704,12 +700,12 @@
       <workItem from="1481131488760" duration="3092000" />
       <workItem from="1481379429492" duration="625000" />
       <workItem from="1481457734851" duration="3109000" />
-      <workItem from="1481492677612" duration="1978000" />
+      <workItem from="1481492677612" duration="2101000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11050000" />
+    <option name="totallyTimeSpent" value="11173000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="80" y="0" width="1840" height="1080" extended-state="6" />
@@ -780,14 +776,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/COMuscle/Segment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/COMuscle/Semaphore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1166,9 +1154,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/COMuscle/Barriere.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/COMuscle/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="340">
           <caret line="25" column="44" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="44" />
           <folding />
         </state>
@@ -1176,11 +1172,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/COMuscle/File.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        <state relative-caret-position="153">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
           <folding>
-            <element signature="e#286#287#0" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
+            <element signature="e#287#288#0" expanded="true" />
+            <element signature="e#310#311#0" expanded="true" />
           </folding>
         </state>
       </provider>

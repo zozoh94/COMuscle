@@ -7,7 +7,7 @@ public class File {
 	private static File File1 = null;
 	private static File File2 = null;
 
-	public File(int sens) {
+	private File(int sens) {
 		this.sens = sens;
 	}
 
