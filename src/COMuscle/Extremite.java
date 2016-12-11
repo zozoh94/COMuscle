@@ -10,6 +10,7 @@ public class Extremite {
 
 	public Extremite() {
 		super();
+		sesSemaphores = new ArrayList<Semaphore>();
 	}
 	
 	public Extremite(Segment sonSegment) {
@@ -24,14 +25,18 @@ public class Extremite {
 		this.sesSemaphores = sesSemaphores;
 	}
 
-/* GETTERS ET SETTERS */
+  /* GETTERS ET SETTERS */
   
   public ArrayList<Semaphore> getSesSemaphores() {
 	  return sesSemaphores;
   }
   
   public void setSesSemaphores(ArrayList<Semaphore> s) {
-	  sesSemaphores=s;
+	  sesSemaphores = s;
+  }
+  
+  public void addSesSemaphores(Semaphore s) {
+	  sesSemaphores.add(s);
   }
   
   public Jonction getSaJonction() {
@@ -48,5 +53,5 @@ public class Extremite {
   
   public void setSonSegment(Segment sonSegment_) {
     this.sonSegment = sonSegment_;
-}
+  }
 }

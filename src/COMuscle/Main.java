@@ -5,11 +5,12 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+	
+	public static int temps = 0;
 
 	public static void main(String[] args) {
     	
 		// Config
-		int temps = 0;
 		boolean continuer = true;
 		
 		// Création du réseau routier
@@ -26,7 +27,7 @@ public class Main {
 					   
 		// Ajout de sémaphores ici et là
 		PanneauSTOP semaphore1 = new PanneauSTOP(segment1.getExtremite2());
-		FeuTricolore semaphore2 = new FeuTricolore(segment2.getExtremite2());
+		FeuBicolore semaphore2 = new FeuBicolore(segment2.getExtremite2(), BicolorEnum.ROUGE);
 		
 		// Création d'une voiture
 		Voiture voiture1 = new Voiture(new Position(segment1, file2));
@@ -34,13 +35,13 @@ public class Main {
 		
 		// Création de la boucle temporelle
 		while (continuer) {
-			System.out.println("\n-- Temps " + temps);
+			System.out.println("\n-- Temps " + Main.temps);
 
 			System.out.println(voiture1);
 			voiture1.deplacer();
 			
 			continuer();
-			temps++;
+			Main.temps++;
 		}
     	
 	}
