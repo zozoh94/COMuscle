@@ -7,7 +7,6 @@ public class Extremite {
   private Segment sonSegment;
   private ArrayList<Semaphore> sesSemaphores;
   
-  
 
 	public Extremite() {
 		super();
