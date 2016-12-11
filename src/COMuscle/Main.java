@@ -57,7 +57,7 @@ public class Main {
 			continuer();
 			
 			temps++;
-			periodiqueColorChange(semaphore2);
+			semaphore2.periodiqueColorChange();
 			
 		}
     	
@@ -69,8 +69,5 @@ public class Main {
 		scanner.nextLine();
 	}
 	
-	public static void periodiqueColorChange(Feu f) {
-		if (Main.temps%2==0)
-			f.update();
-	}
+	
 }

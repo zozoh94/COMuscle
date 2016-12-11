@@ -7,18 +7,21 @@ public abstract class Feu extends Semaphore {
 		super();
 
 	}
-	
+
 	public EnumFeu getEtat() {
 		return etat;
 	}
-	
+
 	public void setEtat(EnumFeu e) {
-		etat=e;
+		etat = e;
 	}
 
 	public Feu(Extremite extremite) {
 		super(extremite);
 	}
-	
+
 	public abstract void update();
+
+	public abstract void periodiqueColorChange();
+
 }
