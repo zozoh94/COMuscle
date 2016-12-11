@@ -1,23 +1,22 @@
 package COMuscle;
 
-import java.util.ArrayList;
 
 public class RegulateurFeuRougeSiVitesseElevee extends Regulateur{
+	private Feu f;
+	private CVitesse cv;
 	
-	
-	/*public RegulateurFeuRougeSiVitesseElevee(Semaphore s, CVitesse c) {
-		c=(CVitesse) super.capteurs.get(0);
-		s= super.semaphores.get(0);
+	public RegulateurFeuRougeSiVitesseElevee(Feu f_, CVitesse cv_) {
+		f=f_;
+		cv=cv_;
 	}
 	
 	
+	
 	public void run() {
-		for(int i=0; i<super.capteurs.get(0).sonEmplacement.sesVehicules.size(); i++) {
-			if (super.capteurs.get(0).sonEmplacement.sesVehicules.get(i).vitesse>50) 
-				super.semaphores.get(0).etat=TricolorEnum.ROUGE;
-		}
-		
-		
-	}*/
+		System.out.println("vitesse voiture au niveau du capteur: " + cv.signalerVitesse());
+			if (cv.signalerVitesse()>=1)
+				f.setEtat(EnumFeu.ROUGE);
+				
+	}
 	
 }

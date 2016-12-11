@@ -1,12 +1,14 @@
 package COMuscle;
 
-public enum BicolorEnum {
+public enum EnumFeu {
 	ROUGE("rouge"),
+	ORANGE("orange"),
 	VERT("vert");
+	
 	
 	private String name = "";
 	
-	 BicolorEnum(String etat) {
+	 EnumFeu(String etat) {
 		name=etat;
 	}
 	
