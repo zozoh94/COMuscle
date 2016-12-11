@@ -11,7 +11,8 @@ public class RegulateurFeuRougeSiVitesseElevee extends Regulateur{
 	}
 	
 	public void run() {
-		if (cv.signalerVitesse()>=1) 
+		System.out.println("vitesse vehicule : " + cv.signalerVitesse());
+	
 				f.etat=EnumFeu.ROUGE;
 		
 	}
