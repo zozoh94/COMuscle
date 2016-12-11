@@ -10,7 +10,7 @@ public class Jonction extends Emplacement {
     	
         this.longueur = 1;
         
-    	// On ajoute automatiquement les files des segments reliés
+    	// On ajoute automatiquement les files des segments reliés (c'est juste plus pratique que de le refaire à la main dans le main()...)
         for (int i = 0 ; i < extremites.size() ; i++)
         	this.addFiles(extremites.get(i).getSonSegment().getFiles());
     }
