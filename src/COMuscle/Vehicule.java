@@ -17,6 +17,7 @@ public abstract class Vehicule {
     public Vehicule (Position position) {
 		this();
 		this.position = position;
+		this.position.getEmplacement().addVehicule(this);
     }
     
     public void deplacement() {
