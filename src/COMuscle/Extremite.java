@@ -13,7 +13,7 @@ public class Extremite {
 	}
 	
 	public Extremite(Segment sonSegment) {
-		super();
+		this();
 		this.sonSegment = sonSegment;
 	}
   

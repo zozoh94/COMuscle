@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class RegulateurFeuRougeSiVitesseElevee extends Regulateur{
 	
 	
-	public RegulateurFeuRougeSiVitesseElevee(Semaphore s, CVitesse c) {
+	/*public RegulateurFeuRougeSiVitesseElevee(Semaphore s, CVitesse c) {
 		c=(CVitesse) super.capteurs.get(0);
 		s= super.semaphores.get(0);
 	}
@@ -18,6 +18,6 @@ public class RegulateurFeuRougeSiVitesseElevee extends Regulateur{
 		}
 		
 		
-	}
+	}*/
 	
 }
