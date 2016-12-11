@@ -13,12 +13,12 @@ public class Main {
 		boolean continuer = true;
 		
 		// Création du réseau routier
-		File file1 = new File(0); // file sens 0
-		File file2 = new File(1); // file sens 1
+		File file1 = new File(0); // file sens 0 = va vers extremite1
+		File file2 = new File(1); // file sens 1 = va vers extremite2
 		
-		Segment segment1 = new Segment(true); // true = crée automatiquement 2 nouvelles extrémités
+		Segment segment1 = new Segment(5, true); // true = crée automatiquement 2 nouvelles extrémités
 				segment1.setFiles(new ArrayList<File>(Arrays.asList(file1, file2))); // On oublit pas d'ajouter les files
-		Segment segment2 = new Segment(true);
+		Segment segment2 = new Segment(7, true); // Segment de taille 7 unités
 				segment2.setFiles(new ArrayList<File>(Arrays.asList(file1, file2))); // Partage les mêmes files que segment1
 		
 		JonctionSimple jonction1 = new JonctionSimple(segment1, segment2); // Jonction va se lier à segment1.extremit2 et segment2.extremite1 par défaut, si besoin d'autres extremités il faut les spécifier explicitement
@@ -29,11 +29,15 @@ public class Main {
 		FeuTricolore semaphore2 = new FeuTricolore(segment2.getExtremite2());
 		
 		// Création d'une voiture
-		Voiture voiture1 = new Voiture(new Position(segment1, file1));
+		Voiture voiture1 = new Voiture(new Position(segment1, file2));
+		voiture1.setVitesse(1);
 		
 		// Création de la boucle temporelle
 		while (continuer) {
 			System.out.println("\n-- Temps " + temps);
+
+			System.out.println(voiture1);
+			voiture1.deplacer();
 			
 			continuer();
 			temps++;

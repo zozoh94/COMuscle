@@ -20,8 +20,19 @@ public abstract class Vehicule {
 		this.position.getEmplacement().addVehicule(this);
     }
     
-    public void deplacement() {
-        this.position.setPosition(this.position.getPosition() + this.vitesse); // Ã  modif pour gÃ©rer les cas oÃ¹ la caisse change d'emplacement
+    public void deplacer() {
+    	
+    	int newPos = this.position.getPosition() + this.vitesse;
+    	
+    	// On sort de l'emplacement actuel ?
+    	if (newPos >= this.position.getEmplacement().getLongueur()) {
+    		// On récupère l'emplacement suivant (qui peut être un segment ou une jonction) en fonction du sens dans lequel le véhicule avance (i.e. en fonction de la file)
+    		this.position.setEmplacement(this.position.getEmplacement().recupererEmplacementSuivant(this.position.getFile().getSens()));
+    		this.position.setPosition(0); // On oublit pas de réinitialiser la position sur le nouvel emplacement
+    	}
+    	// Sinon on continue d'avancer sur l'emplacement
+    	else
+    		this.position.setPosition(newPos);
     }
     
     /* GETTERS ET SETTERS */
@@ -34,15 +45,19 @@ public abstract class Vehicule {
     	return longueur;
     }
     
-    public void setLongueur(int longueur_) {
-    	this.longueur = longueur_;
+    public void setLongueur(int longueur) {
+    	this.longueur = longueur;
     }
     
     public int getVitesse() {
         return vitesse;
     }
     
-    public void setVitesse(int vitesse_) {
-        this.vitesse = vitesse_;
+    public void setVitesse(int vitesse) {
+        this.vitesse = vitesse;
+    }
+    
+    public String toString() {
+    	return "[Vehicule,#" + this.id + ",Vt:" + this.vitesse + ",Lg;" + this.longueur + "," + this.position + "]";
     }
 }

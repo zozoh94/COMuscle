@@ -45,5 +45,8 @@ public class Position {
 		this.file = file;
 	}
 	
+	public String toString() {
+		return "pos[" + this.emplacement + "," + this.position + "," + this.file + "]";
+	}
 	
 }
