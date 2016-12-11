@@ -1,6 +1,6 @@
 package COMuscle;
 
-public class Feu extends Semaphore {
+public abstract class Feu extends Semaphore {
 	protected EnumFeu etat;
 
 	public Feu() {
@@ -19,4 +19,6 @@ public class Feu extends Semaphore {
 	public Feu(Extremite extremite) {
 		super(extremite);
 	}
+	
+	public abstract void update();
 }
