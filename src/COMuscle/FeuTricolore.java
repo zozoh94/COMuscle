@@ -11,6 +11,9 @@ public class FeuTricolore extends Feu {
 		super(extremite);
 		etat = EnumFeu.VERT;
 }
+	public void setEtat(EnumFeu e) {
+		etat=e;
+	}
 	
 	public String toString() {
 		return etat.toString();

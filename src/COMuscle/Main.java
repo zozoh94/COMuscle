@@ -26,14 +26,14 @@ public class Main {
 					   
 		// Ajout de sémaphores ici et là
 		PanneauSTOP semaphore1 = new PanneauSTOP(segment2.getExtremite1());
-		FeuTricolore semaphore2 = new FeuTricolore(segment1.getExtremite2());
+		FeuTricolore semaphore2 = new FeuTricolore(segment2.getExtremite1());
 		
 		// Création d'une voiture
 		Voiture voiture1 = new Voiture(new Position(segment1, 0,file2));
 		voiture1.setVitesse(1);
 		
 		//Creation d'un element de Regulation
-		CVitesse cv = new CVitesse(new Position(segment1, 2,file2));
+		CVitesse cv = new CVitesse(new Position(segment1, 3,file2));
 		RegulateurFeuRougeSiVitesseElevee r = new RegulateurFeuRougeSiVitesseElevee(semaphore2,cv);
 		
 		
@@ -45,12 +45,15 @@ public class Main {
 			System.out.println("le feu est " + semaphore2);
 			System.out.println("la position du capteur : " + cv.saPosition.getPosition());
 			
+			
+			
 			System.out.println(voiture1);
 			voiture1.deplacer();
-			voiture1.setVitesse(1);
-			System.out.println("le feu est " + semaphore2);
-			continuer();
 			r.run();
+			System.out.println("le feu est " + semaphore2);
+			System.out.println("pos vehicule : " + voiture1.getPosition().getPosition());
+			continuer();
+			
 			temps++;
 		}
     	
