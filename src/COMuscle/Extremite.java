@@ -5,16 +5,33 @@ import java.util.ArrayList;
 public class Extremite {
   private Jonction saJonction;
   private Segment sonSegment;
-  private ArrayList<Semaphore> sesSemaphore;
+  private ArrayList<Semaphore> sesSemaphores;
   
-  /* GETTERS ET SETTERS */
+
+	public Extremite() {
+		super();
+	}
+	
+	public Extremite(Segment sonSegment) {
+		super();
+		this.sonSegment = sonSegment;
+	}
   
-  public ArrayList<Semaphore> getSonSemaphore() {
-	  return sesSemaphore;
+	public Extremite(Jonction saJonction, Segment sonSegment, ArrayList<Semaphore> sesSemaphores) {
+		super();
+		this.saJonction = saJonction;
+		this.sonSegment = sonSegment;
+		this.sesSemaphores = sesSemaphores;
+	}
+
+/* GETTERS ET SETTERS */
+  
+  public ArrayList<Semaphore> getSesSemaphores() {
+	  return sesSemaphores;
   }
   
-  public void setSonSemaphore(ArrayList<Semaphore> s) {
-	  sesSemaphore=s;
+  public void setSesSemaphores(ArrayList<Semaphore> s) {
+	  sesSemaphores=s;
   }
   
   public Jonction getSaJonction() {

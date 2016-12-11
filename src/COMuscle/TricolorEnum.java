@@ -8,7 +8,7 @@ public enum TricolorEnum {
 	private String name = "";
 	
 	 TricolorEnum(String etat) {
-		name=etat;
+		name = etat;
 	}
 	
 	 public String toString() {
