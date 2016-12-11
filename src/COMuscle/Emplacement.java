@@ -28,6 +28,16 @@ public abstract class Emplacement {
 	public Emplacement recupererEmplacementSuivant(int sens) {
 		return null;
 	}
+	
+	public Extremite extremiteCommuneAvec(Emplacement emp) {
+		// Si on trouve une extrémité partagée entre les deux emplacements, c'est par celle-ci que ces emplacements sont connectés donc on la renvoie
+		for (int i = 0 ; i < extremites.size() ; i++)
+			for (int j = 0 ; j < emp.getExtremites().size() ; j++)
+				if (extremites.get(i) == emp.getExtremites().get(j))
+					return extremites.get(i);
+		
+		return null;
+	}
     
 	public String toString() {
 		return "Emp#" + this.id;
