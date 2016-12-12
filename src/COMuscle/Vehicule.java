@@ -36,7 +36,7 @@ public abstract class Vehicule {
 	    		// On r�cup�re l'emplacement suivant (qui peut �tre un segment ou une jonction) en fonction du sens dans lequel le v�hicule avance (i.e. en fonction de la file)
 	    		if(this.position.getEmplacement() instanceof ContinuableEmplacement) {
                     this.position.getEmplacement().removeVehicule(this);
-                    this.position.setEmplacement(this.position.getEmplacement().recupererEmplacementSuivant(this.position.getFile().getSens()));
+                    this.position.setEmplacement(((ContinuableEmplacement)(this.position.getEmplacement())).recupererEmplacementSuivant(this.position.getFile().getSens()));
                     this.position.setPosition(0); // On oublit pas de r�initialiser la position sur le nouvel emplacement
                     this.position.getEmplacement().addVehicule(this);
                 }
