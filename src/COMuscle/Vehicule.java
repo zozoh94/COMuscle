@@ -116,4 +116,8 @@ public abstract class Vehicule {
     public String toString() {
     	return "[Vehicule,#" + this.id + ",Vt:" + this.vitesse + ",Lg;" + this.longueur + "," + this.position + "]";
     }
+
+	public Position getPosition() {
+		return position;
+	}
 }
