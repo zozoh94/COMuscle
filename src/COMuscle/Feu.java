@@ -13,7 +13,7 @@ public class Feu extends Semaphore {
 	}
 	
 	public void setEtat(EnumFeu e) {
-		etat=e;
+		etat = e;
 	}
 
 	public Feu(Extremite extremite) {

@@ -8,12 +8,14 @@ public abstract class Vehicule {
     protected int id;
     protected int longueur;
     protected int vitesse;
+    protected int vitesseMax;
     
-    private VehiculeEtat etat; // 0 = en train d'avancer, 1 = � l'arr�t temporairement (stop), 2 = a fini un arr�t, 3 = � l'arr�t pour un temps ind�termin�
+    private VehiculeEtat etat; // 0 = en train d'avancer, 1 = ï¿½ l'arrï¿½t temporairement (stop), 2 = a fini un arrï¿½t, 3 = ï¿½ l'arrï¿½t pour un temps indï¿½terminï¿½
     
     public Vehicule () {
 		this.id = Vehicule.compteur++;
-		this.vitesse = 1;
+		this.vitesseMax = 10;
+		this.vitesse = 10;
 		this.etat = VehiculeEtat.AVANCE;
     }
     
@@ -24,16 +26,15 @@ public abstract class Vehicule {
     }
     
     public void deplacer() throws DemiTourImpossibleException{
-    	
-    	int newPos = this.position.getPosition() + this.vitesse;
-    	
-    	// On sort de l'emplacement actuel ?
-    	if (newPos >= this.position.getEmplacement().getLongueur()) {
+
+    	if (this.peutAvancer()) {
     		
-    		// On est � une extr�mit�, on v�rifie qu'il y ai pas un semaphore qui nous bloque (type feux, panneaux stop)
-    		if (this.peutAvancer()) {
-    			
-	    		// On r�cup�re l'emplacement suivant (qui peut �tre un segment ou une jonction) en fonction du sens dans lequel le v�hicule avance (i.e. en fonction de la file)
+    		int newPos = this.position.getPosition() + this.vitesse;
+	    	
+	    	// On sort de l'emplacement actuel ?
+	    	if (newPos >= this.position.getEmplacement().getLongueur()) {
+		    			
+	    		// On rï¿½cupï¿½re l'emplacement suivant (qui peut ï¿½tre un segment ou une jonction) en fonction du sens dans lequel le vï¿½hicule avance (i.e. en fonction de la file)
 	    		if(this.position.getEmplacement() instanceof ContinuableEmplacement) {
                     this.position.getEmplacement().removeVehicule(this);
                     Emplacement emplacementSuivant = ((ContinuableEmplacement)(this.position.getEmplacement())).recupererEmplacementSuivant(this.position.getFile().getSens());
@@ -54,27 +55,28 @@ public abstract class Vehicule {
                         else
                             throw new DemiTourImpossibleException();
                     }
-                    this.position.setPosition(0); // On oublit pas de r�initialiser la position sur le nouvel emplacement
+                    this.position.setPosition(0); // On oublit pas de rï¿½initialiser la position sur le nouvel emplacement
                     this.position.getEmplacement().addVehicule(this);
                 }
-    		}
+		    		
+	    	}
+	    	// Sinon on continue d'avancer sur l'emplacement
+	    	else
+	    		this.position.setPosition(newPos);
     	}
-    	// Sinon on continue d'avancer sur l'emplacement
-    	else
-    		this.position.setPosition(newPos);
     }
     
     public boolean peutAvancer() {
     	
-    	// On utilise l'�tat du v�hicule pour savoir s'il peut avancer
-    	// Rappel des valeurs de "etat" : 0 = en train d'avancer, 1 = � l'arr�t temporairement (stop), 2 = a fini un arr�t, 3 = � l'arr�t pour un temps ind�termin�
+    	// On utilise l'ï¿½tat du vï¿½hicule pour savoir s'il peut avancer
+    	// Rappel des valeurs de "etat" : 0 = en train d'avancer, 1 = ï¿½ l'arrï¿½t temporairement (stop), 2 = a fini un arrï¿½t, 3 = ï¿½ l'arrï¿½t pour un temps indï¿½terminï¿½
     	
-    	if (etat == VehiculeEtat.ARRETTEMPORAIRE) // On est d�j� � l'arr�t avant d'analyser les semaphores ?  C'est qu'on s'est d�j� arr�t�, on le pr�cise
+    	if (etat == VehiculeEtat.ARRETTEMPORAIRE) // On est dï¿½jï¿½ ï¿½ l'arrï¿½t avant d'analyser les semaphores ?  C'est qu'on s'est dï¿½jï¿½ arrï¿½tï¿½, on le prï¿½cise
 			etat = VehiculeEtat.ARRETTERMINE;
 		
 		this.gererComportementSelonSemaphores(); // Analyse des semaphores
 		
-		if (etat == VehiculeEtat.ARRETTEMPORAIRE || etat == VehiculeEtat.ARRET) // On est � l'arr�t suite � l'analyse des semaphores ? Premi�re fois qu'on s'arr�te, on se d�place pas
+		if (etat == VehiculeEtat.ARRETTEMPORAIRE || etat == VehiculeEtat.ARRET) // On est ï¿½ l'arrï¿½t suite ï¿½ l'analyse des semaphores ? Premiï¿½re fois qu'on s'arrï¿½te, on se dï¿½place pas
 			return false;
 		
 		if (etat == VehiculeEtat.ARRETTERMINE)
@@ -92,7 +94,7 @@ public abstract class Vehicule {
 			extremite.getSesSemaphores().get(i).gererEtatVehicule(this);
 			
 		
-		// ---- Ancienne version, pas assez de modularit�, il faut passer par une m�thode g�n�raliste "gererEtatVehicule"
+		// ---- Ancienne version, pas assez de modularitï¿½, il faut passer par une mï¿½thode gï¿½nï¿½raliste "gererEtatVehicule"
 		// ---- sur les semaphores pour pouvoir ajouter facilement de nouveaux semaphores (c'est ce genre de chose qu'attend le prof)
 		// Panneau STOP (le plus simple)
 		/*if (etat == 0 && extremite.getSesSemaphores().get(i).type().contains("PanneauSTOP"))
@@ -114,12 +116,25 @@ public abstract class Vehicule {
     	this.longueur = longueur;
     }
     
+    public int getVitesseMax() {
+        return vitesseMax;
+    }
+    
+    public void setVitesseMax(int vitesseMax) {
+        this.vitesseMax = vitesseMax;
+        this.vitesse = vitesseMax; // on adapte la vitesse
+    }
+    
     public int getVitesse() {
         return vitesse;
     }
     
     public void setVitesse(int vitesse) {
         this.vitesse = vitesse;
+        
+        // Au cas o񠬡 voiture va trop vite, on 귩te l'incoh곥nce
+        if (this.vitesse > vitesseMax)
+        	this.vitesseMax = this.vitesse;
     }
     
     public VehiculeEtat getEtat() {
