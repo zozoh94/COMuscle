@@ -23,7 +23,7 @@ public abstract class Vehicule {
 		this.position.getEmplacement().addVehicule(this);
     }
     
-    public void deplacer() {
+    public void deplacer() throws DemiTourImpossibleException{
     	
     	int newPos = this.position.getPosition() + this.vitesse;
     	
@@ -36,7 +36,24 @@ public abstract class Vehicule {
 	    		// On r�cup�re l'emplacement suivant (qui peut �tre un segment ou une jonction) en fonction du sens dans lequel le v�hicule avance (i.e. en fonction de la file)
 	    		if(this.position.getEmplacement() instanceof ContinuableEmplacement) {
                     this.position.getEmplacement().removeVehicule(this);
-                    this.position.setEmplacement(((ContinuableEmplacement)(this.position.getEmplacement())).recupererEmplacementSuivant(this.position.getFile().getSens()));
+                    Emplacement emplacementSuivant = ((ContinuableEmplacement)(this.position.getEmplacement())).recupererEmplacementSuivant(this.position.getFile().getSens());
+                    if(emplacementSuivant != null)
+                        this.position.setEmplacement(emplacementSuivant);
+                    else {
+                        //On fait demi-tour la voie est sans issue si une file retour est disponible
+                        int sensActuel = this.position.getFile().getSens();
+                        File fileTrouve = null;
+                        for (File file: this.position.getEmplacement().getFiles()) {
+                             if(file.getSens() != sensActuel) {
+                                 fileTrouve = file;
+                                 break;
+                             }
+                        }
+                        if(fileTrouve != null)
+                            this.position.setFile(fileTrouve);
+                        else
+                            throw new DemiTourImpossibleException();
+                    }
                     this.position.setPosition(0); // On oublit pas de r�initialiser la position sur le nouvel emplacement
                     this.position.getEmplacement().addVehicule(this);
                 }
