@@ -25,12 +25,8 @@ public abstract class Emplacement {
         this.extremites = extremites;
 	}
 	
-	public Emplacement recupererEmplacementSuivant(int sens) {
-		return null;
-	}
-	
 	public Extremite extremiteCommuneAvec(Emplacement emp) {
-		// Si on trouve une extrémité partagée entre les deux emplacements, c'est par celle-ci que ces emplacements sont connectés donc on la renvoie
+		// Si on trouve une extrï¿½mitï¿½ partagï¿½e entre les deux emplacements, c'est par celle-ci que ces emplacements sont connectï¿½s donc on la renvoie
 		for (int i = 0 ; i < extremites.size() ; i++)
 			for (int j = 0 ; j < emp.getExtremites().size() ; j++)
 				if (extremites.get(i) == emp.getExtremites().get(j))

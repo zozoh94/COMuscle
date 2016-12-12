@@ -10,11 +10,11 @@ public class FeuBicolore extends Feu {
 		else
 			etat = etat;
   }
-	
+
 	public FeuBicolore(Extremite extremite) {
 		super(extremite);
 	}
-	
+
 	public FeuBicolore(Extremite extremite, BicolorEnum etat) {
 		super(extremite);
 		this.etat = etat;

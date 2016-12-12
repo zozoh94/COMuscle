@@ -15,5 +15,4 @@ public class JonctionSimple extends Jonction {
     	segment1.getExtremite2().setSaJonction(this);
     	segment2.getExtremite1().setSaJonction(this);
     }
-
 }

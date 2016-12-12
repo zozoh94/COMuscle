@@ -1,6 +1,6 @@
 package COMuscle;
 
-public class Segment extends Emplacement {
+public class Segment extends Emplacement implements ContinuableEmplacement {
 
 	public Segment() {
 		super();
