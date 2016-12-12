@@ -1,8 +1,9 @@
 package COMuscle;
 
 import java.util.ArrayList;
+import java.util.Random;
 
-public class Jonction extends Emplacement {
+public abstract class Jonction extends Emplacement implements ContinuableEmplacement {
 
     /* CONSTRUCTEUR */
     public Jonction(ArrayList<Extremite> extremites) {
@@ -16,11 +17,10 @@ public class Jonction extends Emplacement {
     }
 	
 	public Emplacement recupererEmplacementSuivant(int sens) {
-		return this.extremites.get(sens).getSonSegment();
+        Random rand = new Random();
+		return this.extremites.get(rand.nextInt(extremites.size())).getSonSegment();
 	}
-	
-	
-	
+
 	public String toString() {
 		return "Jct#" + this.getId();
 	}
