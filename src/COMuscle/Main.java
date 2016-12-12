@@ -14,8 +14,8 @@ public class Main {
 		boolean continuer = true;
 		
 		// CrÃ©ation du rÃ©seau routier
-		File file1 = new File(0); // file sens 0 = va vers extremite1
-		File file2 = new File(1); // file sens 1 = va vers extremite2
+		File file1 = File.getFile1(); // file sens 0 = va vers extremite1
+		File file2 = File.getFile2(); // file sens 1 = va vers extremite2
 		
 		Segment segment1 = new Segment(5, true); // true = crÃ©e automatiquement 2 nouvelles extrÃ©mitÃ©s
 				segment1.setFiles(new ArrayList<File>(Arrays.asList(file1, file2))); // On oublit pas d'ajouter les files
