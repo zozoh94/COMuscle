@@ -1,7 +1,15 @@
 package COMuscle;
 
-public class FeuBicolore extends Feux {
-	BicolorEnum etat;
+
+public class FeuBicolore extends Feu {
+	private EnumFeu etat;
+
+	public FeuBicolore(EnumFeu etat) {
+		if (etat == EnumFeu.ORANGE)
+			System.out.println("Erreur c'est un feu Bicolore !!");
+		else
+			etat = etat;
+  }
 	
 	public FeuBicolore(Extremite extremite) {
 		super(extremite);
@@ -11,30 +19,42 @@ public class FeuBicolore extends Feux {
 		super(extremite);
 		this.etat = etat;
 	}
-	
-	
+  
+	public FeuBicolore(Extremite extremite) {
+		super(extremite);
+		etat = EnumFeu.ROUGE;
+  }
+
 	public void update() {
-		if (this.etat == BicolorEnum.ROUGE) this.etat = BicolorEnum.VERT;
-		else this.etat = BicolorEnum.ROUGE;
-	}
+
+		if (this.etat == EnumFeu.ROUGE)
+			this.etat = EnumFeu.VERT;
+		else
+			this.etat = EnumFeu.ROUGE;
+
+	} 
+
+	public String toString() {
+		return etat.toString();
+  }
 	
 	public void gererEtatVehicule(Vehicule vehicule) {
 		
-		// DEBUG ONLY, je change la couleur du feu juste pour montrer qu'après le temps 16 la voiture avance (ça créera un bug du coup)
+		// DEBUG ONLY, je change la couleur du feu juste pour montrer qu'aprÃ¨s le temps 16 la voiture avance (Ã§a crÃ©era un bug du coup)
 		if (Main.temps > 16)
 			this.etat = BicolorEnum.VERT;
 		
-		// Si le véhicule est en train d'avancer, on l'arrête tant que le feu est rouge
+		// Si le vÃ©hicule est en train d'avancer, on l'arrÃªte tant que le feu est rouge
 		if (this.etat == BicolorEnum.ROUGE && vehicule.getEtat() == VehiculeEtat.AVANCE) {
-			vehicule.setEtat(VehiculeEtat.ARRET); // 3 = arrêt tps indéterminé
+			vehicule.setEtat(VehiculeEtat.ARRET); // 3 = arrÃªt tps indÃ©terminÃ©
 		}
 		
-		// Sinon si feu vert et que le véhicule est à l'arrêt, on le remet à l'état d'avancement (0)
+		// Sinon si feu vert et que le vÃ©hicule est Ã  l'arrÃªt, on le remet Ã  l'Ã©tat d'avancement (0)
 		else if (this.etat == BicolorEnum.VERT && (vehicule.getEtat() == VehiculeEtat.ARRET || vehicule.getEtat() == VehiculeEtat.ARRETTEMPORAIRE))
 			vehicule.setEtat(VehiculeEtat.AVANCE);
 			
 		
-		// Rappel des valeurs de "etat" : 0 = en train d'avancer, 1 = à l'arrêt temporairement (stop), 2 = a fini un arrêt, 3 = à l'arrêt pour un temps indéterminé
+		// Rappel des valeurs de "etat" : 0 = en train d'avancer, 1 = Ã  l'arrÃªt temporairement (stop), 2 = a fini un arrÃªt, 3 = Ã  l'arrÃªt pour un temps indÃ©terminÃ©
 	}
 
 
